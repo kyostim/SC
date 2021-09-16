@@ -1,0 +1,59 @@
+body {
+    background: black;
+    color: #ffffff;
+}
+
+h1 {
+    font-size: 20px;
+}
+
+table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    color: #000000;
+  }
+
+table td, table th {
+border: 1px solid #ddd;
+padding: 8px;
+}
+
+table tr:nth-child(even){background-color: #ff0000;}
+table tr:nth-child(odd){background-color: #00ff00;}
+
+table tr:hover {background-color: #ffffff;}
+
+table th{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+}
+
+.thingEdit {
+    background-color: #dddddd;
+    color: #000000;
+}
+
+#addRelationship {
+    color: #000000;
+}
+
+#modalFeatureValues {
+    color: #000000;
+}
+
+.relationshipsContent {
+    background-color: #dddddd;
+    color: #000000;
+}
+
+.featureArea {
+    border: 2px solid #999999;
+    background-color: #dddddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 3px;
+}

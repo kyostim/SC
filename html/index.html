@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fi">
+    <head>
+        <title>Smart Campus</title>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="styles.css">   
+        <script src="thing.js"></script>
+          
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <img src="logo.png" alt="Centria Logo" class="navbar-brand">            
+            
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="navbarMenu" class="collapse navbar-collapse">
+                <ul class="nav nav-pills">               
+                    <li class="nav-item">
+                        <a class="nav-link active" href="things.html">Things</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="features.html">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="relationships.html">Reationships</a>
+                    </li>                
+                </ul>
+            </div>
+        </nav>
+
+        <h1>Main page</h1>
+        <!-- <button onclick="getThings()">Get Things</button>
+        <p id="jsonText">tuleeko</p>
+        
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="thingsContent">
+                        <table id="tableThings">                              
+                        </table>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="thingEdit">
+                        <label>ID:</label>
+                        <label id="labelID">0</label> 
+                        <br>
+                        <label>Name:</label>
+                        <input id="inputName">
+                        <br>
+                        <br>
+                        <button id="buttonClearThingFields" onclick="clearThingFields()">Clear</button>
+                        <button id="buttonUpdateThing" onclick="updateThing()">Update</button>
+                        <button id="buttonDeleteThing" onclick="deleteThing()">Delete</button>
+                    </div>
+                </div>
+            </div>            
+        </div>
+
+
+        <script>
+            
+            function getThings() {
+                fetch('http://192.168.8.118:8000/thing')
+                    .then(response => response.text())
+                    .then(data => handleThingResponse(data))
+                    .catch(function(err) {
+                        alert('Fetch Error :' + err);
+                    });               
+            }
+
+            function handleThingResponse(data) {
+                var table = document.getElementById('tableThings');
+                table.innerHTML = "";
+                
+                var trHeader = document.createElement('tr');
+                trHeader.innerHTML ='<tr><th>ID</th><th>Name</th></tr>';             
+                table.appendChild(trHeader);             
+                                    
+                const things = JSON.parse(data);
+                things.forEach(element => {
+                    var tr = document.createElement('tr');
+                    tr.addEventListener("click",thingRowClicked, false);
+                    tr.innerHTML = '<td>' + element.ID + '</td>' +
+                                    '<td>' + element.Name + '</td>';
+                    table.appendChild(tr);
+                });
+                
+            }
+
+            function thingRowClicked()
+            {               
+                var id = this.cells[0].innerHTML;
+                var name = this.cells[1].innerHTML;
+
+                var labelID = document.getElementById('labelID');
+                var inputName = document.getElementById('inputName');
+
+                labelID.innerHTML = id;
+                inputName.value = name;
+            }
+
+            function clearThingFields() {
+                var labelID = document.getElementById('labelID');
+                var inputName = document.getElementById('inputName');
+
+                labelID.innerHTML = '0';
+                inputName.value = '';
+            }
+
+            function updateThing() {
+                var labelID = document.getElementById('labelID');
+                var inputName = document.getElementById('inputName');
+
+                if(inputName.value === '') {
+                    alert('Name is mandatory field');
+                }
+                else{
+                    var newThing = new thing(labelID.innerHTML, inputName.value);
+
+
+                    var jsonThing = JSON.stringify(newThing);
+ 
+                    fetch('http://192.168.8.118:8000/thing', {
+                                                                                method: 'PUT',
+                                                                                body: jsonThing,
+                                                                                headers: {'Content-Type': 'application/json'}
+                                                                            })
+                    .then(response => response.text())
+                    .then(response => getThings())
+                    .catch(function(err) {
+                        alert('Fetch Error :' + err);
+                    });  
+                }
+            }
+
+            function deleteThing()
+            {
+                var labelID = document.getElementById('labelID');
+
+                if(labelID.innerHTML > 0)
+                {
+                    fetch('http://192.168.8.118:8000/thing/' + labelID.innerHTML, {
+                                                                                method: 'DELETE'
+                                                                              })
+                    .then(response => response.text())
+                    .then(response => getThings())
+                    .catch(function(err) {
+                        alert('Fetch Error :' + err);
+                    });  
+                }
+            }
+
+        </script>   -->
+        
+    </body>
+</html>
