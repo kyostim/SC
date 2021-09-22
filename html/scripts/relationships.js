@@ -1,5 +1,7 @@
 const { relationshipFromJSON } = require("../releationship");
 
+var url = config.baseProtocol + '://' + config.baseURL + ':' + config.basePort + '/';
+
 function getRelationships() {
     fetch(url + 'relationship')
         .then(response => response.text())
