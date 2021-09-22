@@ -1,3 +1,4 @@
+var url = config.baseProtocol + '://' + config.baseURL + ':' + config.basePort + '/';
 
 function getFeatures() {
     fetch(url + 'feature')
